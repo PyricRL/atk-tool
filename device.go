@@ -23,7 +23,7 @@ type DeviceInfo struct {
 	Interface   int    `json:"interface"`
 	UsagePage   uint16 `json:"usage_page"`
 	Usage       uint16 `json:"usage"`
-	ProductName string `json:"product_name"` // Retreived from device
+	ProductName string `json:"product_name"` // Retrieved from device
 	ModelName   string `json:"model_name"`   // Matched from registry
 	ReportID    byte   `json:"report_id"`    // Matched from registry
 }
@@ -132,7 +132,7 @@ func (d *Device) QueryBatteryV2() (*BatteryInfo, error) {
 	packet[2] = CmdMarkerByte				// sent with all commands, not just battery
 	packet[3] = 0x00						// transaction byte — doesn't appear to matter what value
 	packet[4] = 0x00						// transaction byte — doesn't appear to matter what value
-	if strings.Contains(strings.ToLower(d.info.ModelName), "dongle") {
+	if strings.Contains(strings.ToLower(d.info.ProductName), "dongle") {
 		packet[5] = 0x01					// wireless NANO dongle
 	} else {
 		packet[5] = 0x00					// wired
@@ -148,7 +148,7 @@ func (d *Device) QueryBatteryV2() (*BatteryInfo, error) {
 	}
 
 	// Read response
-	inBuf := make([]byte, 64)
+	inBuf := make([]byte, FrameSizeV2)
 	n, err := d.dev.ReadWithTimeout(inBuf, 200*time.Millisecond)
 	if err != nil {
 		return nil, fmt.Errorf("read timeout or error: %w", err)
