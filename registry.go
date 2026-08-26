@@ -38,6 +38,20 @@ var defaultRegistry = []DeviceDefinition{
 		UsagePages: []uint16{0xFF02, 0xFF04},
 		ReportID:   DefaultReportID,
 	},
+	{
+		Name:       "ATK A9 Plus v2.0 NK",
+		VendorID:   0x373b,
+		ProductID:  0x1263,
+		UsagePages: []uint16{0xFF05},
+		ReportID:   DefaultReportID,
+	},
+	{
+		Name:       "ATK NK mouse NANO dongle",
+		VendorID:   0x373b,
+		ProductID:  0x1216,
+		UsagePages: []uint16{0xFF05},
+		ReportID:   DefaultReportID,
+	},
 }
 
 // RegisteredDevices returns a copy of the default list of supported devices.
