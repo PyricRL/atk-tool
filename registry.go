@@ -1246,17 +1246,17 @@ var defaultRegistry = []DeviceDefinition{
 		ReportID:   DefaultReportID,
 	},
 	{
-		Name:       "NK Mouse Dongle",
-		VendorID:   0x373b,
-		ProductID:  0x10c9,
-		UsagePages: []uint16{0xFF02, 0xFF04},
-		ReportID:   DefaultReportID,
-	},
-	{
 		Name:       "NK mouse NANO dongle",
 		VendorID:   0x373b,
 		ProductID:  0x1216,
 		UsagePages: []uint16{0xFF05},
+		ReportID:   DefaultReportID,
+	},
+	{
+		Name:       "NK Mouse Dongle",
+		VendorID:   0x373b,
+		ProductID:  0x1216,
+		UsagePages: []uint16{0xFF02, 0xFF04},
 		ReportID:   DefaultReportID,
 	},
 	{
